@@ -1,0 +1,103 @@
+  import React, { useState } from 'react' 
+  import { EllipsisVertical, User } from 'lucide-react'
+  import { MessageSquareText } from 'lucide-react'
+  import DropDown from './DropDown'
+  import { useEffect , useRef } from 'react'
+  import image1 from "../assets/image1.avif"
+  import { Pencil } from 'lucide-react'
+  import Button from './Button'
+  import { ArrowLeft } from 'lucide-react'
+  import { Check } from 'lucide-react'
+  import { useNavigate } from 'react-router-dom'
+  import { useAuth } from '../context/AuthContext'
+  
+
+
+
+  const ProfileSidebar = () => {
+
+    const {userData} = useAuth();
+
+    if (!userData) {
+    return <div className="text-white p-4">Loading...</div>;
+  }
+
+    const navigate = useNavigate();
+
+    const goToHomeHandler = ()=>{
+      navigate(-1);
+    }
+
+    const [editingName , setEditingName] = useState(false);
+    const [fullNameInput , setFullNameInput] = useState(
+        `${userData.firstname} ${userData.lastname}`
+    );
+
+ 
+    
+   
+
+    return (
+      <div> 
+          <nav className='w-96 h-[100vh] fixed top-0 left-0 bg-[#141e2f]'>
+
+            <div className='flex items-center justify-between'>
+              <ArrowLeft className='text-3xl text-white mt-5 mx-5 cursor-pointer'
+                onClick={goToHomeHandler}
+              />
+              <div className='text-3xl text-white mt-5 mx-5'>Profile</div>
+            </div>
+              <div className='my-10 flex items-center justify-center '>
+                  <img  src={userData?.profilePic  || "/defaultAvatar.png"} alt="profile" className='w-32 h-32 rounded-full cursor-pointer'/> 
+              </div>
+
+            <div className='mx-6 mt-12 flex flex-col gap-y-12'>
+            
+              <div className='flex flex-col gap-y-5'>
+                  <div className='text-gray-200 text-sm'>Name</div> 
+                  <div className='flex justify-between items-center'>
+                      
+                   {
+                       editingName
+                      ? (
+                          <div>
+                          <input 
+                           value={fullNameInput}
+                           onChange={(e)=>
+                              setFullNameInput(e.target.value)
+                           }
+                           className='bg-white px-2 py-1 rounded text-black w-full'
+                          />
+                          </div>
+                    
+                    )
+                      
+                      : (<span className='text-white text-md'>{`${userData?.firstname} ${userData?.lastname}`}</span>)
+                   }
+                                
+                       <span title='click to edit' onClick={()=>setEditingName(true)}>
+                       <Pencil color='white' size={18} className='cursor-pointer'/>
+                        </span>
+                                    
+                  </div>
+              </div>
+
+              <div className='flex flex-col gap-y-5'>
+                  <div className='text-gray-200 text-sm'>About</div>
+                  <div className='flex justify-between items-center'>
+                      <span className='text-white text-md'>Hey there I am using chat app</span>
+                      <Pencil color='white' size={18} className='cursor-pointer'/>
+                  </div>
+              </div>
+            </div>
+
+              <div >
+                <Button />
+              </div>
+
+          </nav>
+      </div>
+    )
+  }
+
+  export default ProfileSidebar
