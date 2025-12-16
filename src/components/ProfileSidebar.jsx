@@ -72,7 +72,7 @@
                     
                     )
                       
-                      : (<span className='text-white text-md'>{`${userData?.firstname} ${userData?.lastname}`}</span>)
+                      : (<span className='text-white text-md'>{fullNameInput}</span>)
                    }
                                 
                        <span title='click to edit' onClick={()=>setEditingName(true)}>
@@ -85,7 +85,7 @@
               <div className='flex flex-col gap-y-5'>
                   <div className='text-gray-200 text-sm'>About</div>
                   <div className='flex justify-between items-center'>
-                      <span className='text-white text-md'>Hey there I am using chat app</span>
+                      <span className='text-white text-md'>{userData.status}</span>
                       <Pencil color='white' size={18} className='cursor-pointer'/>
                   </div>
               </div>

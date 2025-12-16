@@ -6,14 +6,14 @@ import {getFirestore} from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBu2Hr_AntqbVW7l1aDuV5Uyn7Y3YJ-lwQ",
-  authDomain: "chatapp-b7e18.firebaseapp.com",
-  projectId: "chatapp-b7e18",
-  storageBucket: "chatapp-b7e18.firebasestorage.app",
-  messagingSenderId: "1068417066734",
-  appId: "1:1068417066734:web:da3a8adf1870c27f4c35ff",
-  measurementId: "G-VHDPPP3HY1",
-  databaseURL: "https://chatapp-b7e18-default-rtdb.firebaseio.com/"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
 };
 
 //initialize firebase
