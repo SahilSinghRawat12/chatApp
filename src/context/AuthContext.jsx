@@ -10,6 +10,8 @@ export const AuthProvider = ({children}) =>{
     const [userData , setUserData] = useState(null);
     const [loading , setLoading] = useState(true);
 
+      
+
     useEffect(()=>{
         const unsub = onAuthStateChanged(auth , async(currentUser)=>{
              if(currentUser)
@@ -17,11 +19,21 @@ export const AuthProvider = ({children}) =>{
                 const docRef = doc(db , "users" , currentUser.uid);
                 const docSnap = await getDoc(docRef);
                                 
-                setUserData(docSnap.data());
+                if(docSnap.exists())
+                {
+                    setUserData({id: docSnap.id ,...docSnap.data()});
+                }  else {
+                    // very important fallback
+                    setUserData(null);
+                    console.warn("No user document found in firestore");
+                    
+                }
+        
              }
 
              else {
                 setUserData(null);
+                 
              }
 
              setLoading(false);

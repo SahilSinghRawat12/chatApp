@@ -5,6 +5,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { getAuth , signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../firebase/firebase';
 import { toast } from 'react-toastify';
+import { doc, getDoc } from 'firebase/firestore';
+ 
 
 const auth = getAuth(app);
  
@@ -34,9 +36,9 @@ const LoginForm = () => {
      signInWithEmailAndPassword(auth , formData.email , formData.password)
        .then( (value) => {
           toast.success("Logged in successfully");
-
+          
           setTimeout(()=>{
-           navigate("/home");
+           navigate("/home");          
           } , 700)
        })
 

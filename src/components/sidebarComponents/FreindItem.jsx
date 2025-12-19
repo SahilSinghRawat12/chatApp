@@ -1,7 +1,10 @@
 import React from 'react'
 import profilePic from "../../assets/profilePic.jpg"
+import { useEffect } from 'react'
 
-const FreindItem = ({friend , setSelectedFriends}) => {
+const FreindItem = ({friend , setSelectedFriends , friends}) => {
+
+  
   return (
     <div className='flex gap-x-5 items-center  my-2 mx-3 rounded-md  hover:bg-gray-900  px-4 py-4 '
      onClick={ ()=> setSelectedFriends(friend) }
@@ -13,7 +16,7 @@ const FreindItem = ({friend , setSelectedFriends}) => {
         </div>  
 
         <div className='flex flex-col text-white justify-center'>
-            <span>{friend.name}</span>
+            <span>{friend.firstname}</span>
             <span className='text-sm text-gray-400'>{friend.lastMessage}</span>
         </div>
     </div>

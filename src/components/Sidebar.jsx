@@ -8,7 +8,7 @@ import FriendList from './sidebarComponents/FriendList'
 import { dummyFriends } from '../data/dummyFreinds'
  
 
-const Sidebar = ({setSelectedFriends}) => {
+const Sidebar = ({setSelectedFriends , friendData}) => {
 
     const [dropdown , setDropDown] = useState(false);
     const dropdownRef = useRef(null);
@@ -71,6 +71,7 @@ const Sidebar = ({setSelectedFriends}) => {
                 <FriendList
                   setSelectedFriends = {setSelectedFriends}
                   friends = {dummyFriends}
+                  friendData = {friendData}
                  />
                
         </nav>

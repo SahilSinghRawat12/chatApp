@@ -55,7 +55,7 @@
             return;
           }
 
-          else 
+          else  
           {
             createUserWithEmailAndPassword(auth , formData.email , formData.password)
             .then( async (value) => {
