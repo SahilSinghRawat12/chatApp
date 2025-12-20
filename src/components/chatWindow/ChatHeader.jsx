@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { CircleAlert } from 'lucide-react'
 import profilePic from "../../assets/profilePic.jpg"
 
 const ChatHeader = ({selectedFriends}) => {
+  
+  const fullName = `${selectedFriends.firstname} ${selectedFriends.lastname}`
+
   return (
     <div className='  flex items-center justify-between h-[70px] px-4 py-5 bg-white border-b border-gray-200'>
 
@@ -13,7 +16,7 @@ const ChatHeader = ({selectedFriends}) => {
               />
 
               <div className='flex items-center gap-2 cursor-default'>
-                 <p>{selectedFriends.name}</p>
+                 <p>{fullName}</p>
 
                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
               </div>

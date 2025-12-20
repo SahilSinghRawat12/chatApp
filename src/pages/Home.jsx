@@ -15,19 +15,34 @@ const Home = () => {
   const [selectedFriends , setSelectedFriends] = useState(null);
   const [messages , setMessages] = useState(dummyMessages);
   const [friendData , setFriendData] = useState([]);
+ 
 
   useEffect(()=>{
 
-     const firestoreData = async () => {
+     const fetchUsers = async () => {
        const querySnapshot = await getDocs(collection( db , "users"));
-       querySnapshot.forEach( (doc) => {
 
-         // doc.data() is never undefined for query doc snapshots
-          setFriendData({ id: doc.id , ...doc.data()})
+        const users = [];
+
+       querySnapshot.forEach( (doc) => {
+        
+        //skip logged in user
+        if(doc.id !== userData?.id)
+        {
+            // doc.data() is never undefined for query doc snapshots
+            users.push({id: doc.id , ...doc.data()});
+        }
          
-       }) }
+         
+        
+          setFriendData(users)
+       }) };
        
-  }, [])
+        if(userData)
+        {
+           fetchUsers();
+        }
+  }, [userData])
 
   function sendHandler(text)
   {

@@ -5,7 +5,7 @@ import DropDown from './DropDown'
 import { useEffect , useRef } from 'react'
 import SearchBar from './sidebarComponents/SearchBar'
 import FriendList from './sidebarComponents/FriendList'
-import { dummyFriends } from '../data/dummyFreinds'
+ 
  
 
 const Sidebar = ({setSelectedFriends , friendData}) => {
@@ -70,7 +70,6 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
               
                 <FriendList
                   setSelectedFriends = {setSelectedFriends}
-                  friends = {dummyFriends}
                   friendData = {friendData}
                  />
                

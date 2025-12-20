@@ -2,7 +2,7 @@ import React from 'react'
 import profilePic from "../../assets/profilePic.jpg"
 import { useEffect } from 'react'
 
-const FreindItem = ({friend , setSelectedFriends , friends}) => {
+const FreindItem = ({friend , setSelectedFriends }) => {
 
   
   return (
@@ -17,7 +17,7 @@ const FreindItem = ({friend , setSelectedFriends , friends}) => {
 
         <div className='flex flex-col text-white justify-center'>
             <span>{friend.firstname}</span>
-            <span className='text-sm text-gray-400'>{friend.lastMessage}</span>
+            <span className='text-sm text-gray-400'>{friend.status}</span>
         </div>
     </div>
   )

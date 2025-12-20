@@ -8,6 +8,7 @@
   import { doc , setDoc } from 'firebase/firestore';
   import { db } from '../firebase/firebase';
   
+  
   // creating instance of auth or like connecting auth to the app
   const auth = getAuth(app); 
 
@@ -68,7 +69,7 @@
                    firstname : formData.firstname,
                    lastname : formData.lastname,
                    email : formData.email,
-                   profilePic : "",
+                   profilePic : "/defaultAvatar.png",
                    createdAt : new Date(),
                    online : true,
                    status : "Hey there I am using chat app",

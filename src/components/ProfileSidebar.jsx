@@ -4,7 +4,6 @@
   import DropDown from './DropDown'
   import { useEffect , useRef } from 'react'
   import image1  from "../assets/image1.avif"
-  import defaultAvatar from "../assets/defaultAvatar.png"
   import { Pencil } from 'lucide-react'
   import Button from './Button'
   import { ArrowLeft } from 'lucide-react'
@@ -104,7 +103,7 @@
                      image 
                      ? ( <img  src={URL.createObjectURL(image)} alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> ) 
                      
-                     : (<img  src={defaultAvatar} alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> )
+                     : (<img  src="/defaultAvatar.png" alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> )
                  }
 
                   <input type='file' className='hidden' ref={inputRef} onChange={imageChangeHandler}/>
