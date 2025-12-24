@@ -12,6 +12,18 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
 
     const [dropdown , setDropDown] = useState(false);
     const dropdownRef = useRef(null);
+
+     //what user types stores in this
+  const [searchText , setSearchText] = useState("");
+ 
+  // decides which list to show
+  const visibleFriends = 
+     searchText.trim() === ""
+     ? friendData
+     : friendData.filter( (friend) => {
+        const fullname = `${friend.firstname} ${friend.lastname}`.toLowerCase();
+        return fullname.includes(searchText.toLowerCase());
+     })
     
     useEffect(()=>{
        const handleClickOutside = (event) =>{
@@ -63,14 +75,14 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
 
               {/* searchbar */}
               <div>
-              <SearchBar />
+              <SearchBar searchText={searchText} setSearchText={setSearchText} />
               </div>
 
               {/* FriendList */}
               
                 <FriendList
                   setSelectedFriends = {setSelectedFriends}
-                  friendData = {friendData}
+                  friendData = {visibleFriends}
                  />
                
         </nav>
