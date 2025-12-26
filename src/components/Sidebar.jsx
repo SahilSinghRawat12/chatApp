@@ -8,7 +8,7 @@ import FriendList from './sidebarComponents/FriendList'
  
  
 
-const Sidebar = ({setSelectedFriends , friendData}) => {
+const Sidebar = ({setSelectedFriends , friendData , setChatId}) => {
 
     const [dropdown , setDropDown] = useState(false);
     const dropdownRef = useRef(null);
@@ -16,15 +16,7 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
      //what user types stores in this
   const [searchText , setSearchText] = useState("");
  
-  // decides which list to show
-  const visibleFriends = 
-     searchText.trim() === ""
-     ? friendData
-     : friendData.filter( (friend) => {
-        const fullname = `${friend.firstname} ${friend.lastname}`.toLowerCase();
-        return fullname.includes(searchText.toLowerCase());
-     })
-    
+ 
     useEffect(()=>{
        const handleClickOutside = (event) =>{
           if(dropdownRef.current &&  !dropdownRef.current.contains(event.target))
@@ -45,6 +37,16 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
              setDropDown(!dropdown);         
               
     }
+
+     // decides which list to show
+  const visibleFriends = 
+     searchText.trim() === ""
+     ? friendData
+     : friendData.filter( (friend) => {
+        const fullname = `${friend.firstname} ${friend.lastname}`.toLowerCase();
+        return fullname.includes(searchText.toLowerCase());
+     })
+    
 
   return (
     <div> 
@@ -83,6 +85,7 @@ const Sidebar = ({setSelectedFriends , friendData}) => {
                 <FriendList
                   setSelectedFriends = {setSelectedFriends}
                   friendData = {visibleFriends}
+                  setChatId = {setChatId}
                  />
                
         </nav>

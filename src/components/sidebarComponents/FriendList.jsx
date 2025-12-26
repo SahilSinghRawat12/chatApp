@@ -1,7 +1,7 @@
 import React from 'react'
 import FreindItem from './FreindItem'
 
-const FriendList = ({setSelectedFriends , friendData}) => {
+const FriendList = ({setSelectedFriends , friendData , setChatId}) => {
   return (
     <div className='flex-1 overflow-y-auto cursor-pointer  hide-scrollbar '>
        {
@@ -10,6 +10,7 @@ const FriendList = ({setSelectedFriends , friendData}) => {
                key={friend.id}
                setSelectedFriends = {setSelectedFriends}
                friend = {friend}
+               setChatId = {setChatId}
              />
           ))
        }    
