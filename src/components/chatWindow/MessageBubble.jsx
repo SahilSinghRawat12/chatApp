@@ -1,9 +1,19 @@
-import React  from 'react'
+import React, { useEffect }  from 'react'
+import { useAuth } from '../../context/AuthContext';
 
 const MessageBubble = ({message }) => {
 
-    const isMe = message.sender === "me";
+  const {userData} = useAuth();
+  const isMe = message.senderId === userData?.id;
+  
 
+  const time = 
+    message.createdAt 
+      ? message.createdAt.toDate().toLocaleTimeString([] , {
+        hour : "2-digit",
+        minute : "2-digit",
+      })
+      : "";
 
   return (
      <div
@@ -13,12 +23,12 @@ const MessageBubble = ({message }) => {
           <div className={
             ` max-w-xs px-3 py-2 rounded-lg text-sm shadow 
             ${
-                isMe ? "bg-blue-500 text-white rounded-br-none" 
-                : "bg-gray-200 text-black rounded-bl-none"
+                isMe ? "bg-blue-500 text-white rounded-br-none " 
+                : "bg-gray-200 text-black rounded-bl-none " 
             }`
           }>
               <p>{message.text}</p> 
-              <span className='text-xs opacity-70 block text-right mt-1'>{message.time}</span>
+              <span className='text-xs opacity-70 block text-right mt-1'>{time}</span>
           </div>
      </div> 
   )

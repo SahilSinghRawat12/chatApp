@@ -15,6 +15,7 @@ const handleEditProfile = () => {
 };
 
 const logoutHandler = () => {
+  
    signOut(auth)
      .then(()=>{
         toast.success("Logged Out");

@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Send } from 'lucide-react'
 
-const MessageInput = ({sendHandler}) => {
+const MessageInput = ({sendHandler , chatId}) => {
 
   const [formData , setFormData] = useState({
      message : "",
   }) 
+
+  useEffect(()=>{
+     formData.message = ""
+  } , [chatId])
 
   function changeHandler(event)
   {

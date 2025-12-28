@@ -3,9 +3,8 @@ import Sidebar from '../components/Sidebar'
 import { ChatWindow } from '../components/chatWindow/ChatWindow';
 import { dummyMessages } from '../data/dummyMessage';
 import { useAuth } from '../context/AuthContext';
-import { collection, getDoc, getDocs } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
-
  
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
   const {userData} = useAuth();
 
   const [selectedFriends , setSelectedFriends] = useState(null);
-  const [messages , setMessages] = useState(dummyMessages);
   const [friendData , setFriendData] = useState([]);
   const [chatId , setChatId] = useState(null);
  
@@ -45,23 +43,30 @@ const Home = () => {
         }
   }, [userData])
 
-  function sendHandler(text)
+
+  async function sendHandler(text)
   {
        if(!selectedFriends) return;
 
-      const newMessages = {
-          id : Date.now(),
-          sender : "me",
-          text,
-          time: "Now",
-      }
+      // add messages document in firestore -> which will contain messages 
+      await addDoc(
+         collection(db , "messages" , chatId , "chat"),
+         {
+             text : text,
+             senderId : userData.id,
+             createdAt : serverTimestamp(),
+         }
+      );
 
-       setMessages((prev)=>(
-      {
-         ...prev ,
-         [selectedFriends.id] : [...prev[selectedFriends.id] , newMessages],  
-      }
-        ));
+      // updating the chats document -> which wil update the lastmessage and lastmessageAt
+      await updateDoc(
+         doc(db , "chats" , chatId),
+         {
+           lastMessage : text,
+           lastMessageAt : serverTimestamp(),
+         }
+      );
+      
   }
 
  
@@ -75,7 +80,6 @@ const Home = () => {
 
       <ChatWindow 
       selectedFriends = {selectedFriends}
-      messages = {messages[selectedFriends?.id] || []}
       sendHandler = {sendHandler}
       chatId = {chatId}
       />

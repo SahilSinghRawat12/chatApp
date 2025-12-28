@@ -62,14 +62,14 @@ const Sidebar = ({setSelectedFriends , friendData , setChatId}) => {
                         <EllipsisVertical color='white' onClick={dropdownHandler}/>
                         {
                          dropdown && 
-                          <div
+                          (<div
                               className="
                                    absolute right-2 top-full mt-2 origin-top-right
                                    animate-dropdown z-50
                               "
                               >
                          <DropDown setDropDown={setDropDown}/>
-                         </div>
+                         </div>)
                          
                         }
                    </div>

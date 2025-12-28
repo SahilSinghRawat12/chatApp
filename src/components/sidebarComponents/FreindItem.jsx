@@ -25,7 +25,8 @@ const FreindItem = ({friend , setSelectedFriends , setChatId }) => {
 
     if(docSnap.exists())
     {
-       console.log("document data : " , docSnap.data());
+       // chat already exists 
+       // do nothing
     }
 
     else 
@@ -42,6 +43,8 @@ const FreindItem = ({friend , setSelectedFriends , setChatId }) => {
     setChatId(singularChatId);
     
   }
+
+  const fullname = `${friend.firstname} ${friend.lastname}`
   
   return (
     <div className='flex gap-x-5 items-center  my-2 mx-3 rounded-md  hover:bg-gray-900  px-4 py-4 '
@@ -53,7 +56,7 @@ const FreindItem = ({friend , setSelectedFriends , setChatId }) => {
         </div>  
 
         <div className='flex flex-col text-white justify-center'>
-            <span>{friend.firstname}</span>
+            <span>{fullname}</span>
             <span className='text-sm text-gray-400'>{friend.status}</span>
         </div>
     </div>

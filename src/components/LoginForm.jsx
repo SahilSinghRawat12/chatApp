@@ -116,7 +116,6 @@ const LoginForm = () => {
                     }
                 </span>  
 
-                 <span className='text-sm text-black  hover:text-white cursor-pointer'>Forgot password?</span>
              </label>
 
              <button className='bg-yellow-400 py-2 rounded-lg hover:bg-white '>
