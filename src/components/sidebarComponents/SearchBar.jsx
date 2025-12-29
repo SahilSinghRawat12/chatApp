@@ -38,7 +38,7 @@ const StyledWrapper = styled.div`
     --focus-input-bg-color: transparent;
     --text-color: #949faa;
     --active-color: #1b9bee;
-    --width-of-input: 350px;
+    --width-of-input: 90%;
     --inline-padding-of-input: 1.2em;
     --gap: 0.9rem;
   }
@@ -144,6 +144,52 @@ const StyledWrapper = styled.div`
   input:-webkit-autofill:active {
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
-  }`;
+  }
+   
+  /* Small devices (landscape phones, 640px and up) */
+  @media only screen and (min-width: 640px) {
+   
+    .form {
+    --input-text-color: #fff;
+    --input-bg-color: #283542;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #1b9bee;
+    --width-of-input: 300px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+  }}
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+   .form {
+    --input-text-color: #fff;
+    --input-bg-color: #283542;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #1b9bee;
+    --width-of-input: 350px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+  }
+} 
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+   .form {
+    --input-text-color: #fff;
+    --input-bg-color: #283542;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #1b9bee;
+    --width-of-input: 350px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+  }
+}
+  
+}
+    
+  `;
 
 export default SearchBar;

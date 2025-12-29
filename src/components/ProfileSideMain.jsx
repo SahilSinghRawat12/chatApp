@@ -3,7 +3,7 @@ import { CircleUserRound } from 'lucide-react'
 
 const ProfileSideMain = () => {
   return (
-    <div className= 'w-full ml-[383px] flex flex-col gap-y-6 justify-center items-center'>
+    <div className= 'hidden sm:w-full ml-[383px] sm:flex flex-col gap-y-6 justify-center items-center'>
          <div>
             <CircleUserRound size={80} color='gray'/>
          </div>

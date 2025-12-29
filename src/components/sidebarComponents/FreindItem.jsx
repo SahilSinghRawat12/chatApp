@@ -6,13 +6,14 @@ import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { db } from '../../firebase/firebase'
 
 
-const FreindItem = ({friend , setSelectedFriends , setChatId }) => {
+const FreindItem = ({friend , setSelectedFriends , setChatId , setIsMobileChatOpen}) => {
 
   const {userData} = useAuth();
 
   const friendListClickHandler = async () => {
     setSelectedFriends(friend);
-
+    setIsMobileChatOpen(true);
+    
     const chatId = [];
     chatId.push(userData.id , friend.id) ;
     const sortedId = chatId.sort();

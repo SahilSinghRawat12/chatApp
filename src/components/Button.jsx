@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Button = () => {
   return (
     <StyledWrapper>
-      <button>
+      <button className='mt-14 ml-44 xs:ml-60 sm:ml-32'>
         <div className="svg-wrapper-1">
           <div className="svg-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24}>
@@ -26,8 +26,7 @@ const StyledWrapper = styled.div`
     background: royalblue;
     color: white;
     padding: 0.3em 0.7em;
-     margin-top:50px;
-     margin-left:125px;
+     
     display: flex;
     align-items: center;
     border: none;

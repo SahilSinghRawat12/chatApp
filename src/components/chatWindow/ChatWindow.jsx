@@ -9,7 +9,7 @@ import { db } from '../../firebase/firebase'
  
  
 
-export const ChatWindow = ({selectedFriends  , sendHandler , chatId}) => {
+export const ChatWindow = ({selectedFriends  , sendHandler , chatId  , isMobileChatOpen , onBack}) => {
 
 
   const [ messages , setMessages ] = useState([]);
@@ -61,12 +61,15 @@ export const ChatWindow = ({selectedFriends  , sendHandler , chatId}) => {
   }
 
   return (
-    <div className='w-[calc(100vw-384px)] h-screen ml-96 flex flex-col '
+    <div className={`w-full sm:w-[calc(100vw-320px)] md:w-[calc(100vw-384px)] h-screen sm:ml-[324px] md:ml-96 sm:flex flex-col 
+      ${isMobileChatOpen ? "block" : "hidden sm:block"}`}
      >
       
       <ChatHeader 
       selectedFriends = {selectedFriends} 
       onClearChat = {clearChatHandler}
+      isMobileChatOpen={isMobileChatOpen}
+      onBack = {onBack}
       />
 
   

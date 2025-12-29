@@ -115,7 +115,7 @@
 
   
     return (
-      <div className='bg-[#7a98cd] w-[400px] h-[600px] rounded-md shadow-md'>
+      <div className='bg-[#7a98cd] w-[360px] sm:w-[400px] h-[600px] rounded-md shadow-md'>
 
           <div className='flex flex-col items-center my-5'>
             <h1 className='text-3xl font-bold'>Create an account</h1>

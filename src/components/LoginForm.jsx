@@ -75,7 +75,7 @@ const LoginForm = () => {
 
  
   return (
-    <div className='bg-[#7a98cd] w-[370px] h-[400px] rounded-md shadow-md'>
+    <div className='bg-[#7a98cd] w-[300px]  sm:w-[370px] h-[400px] rounded-md shadow-md'>
 
         <div className='flex flex-col items-center my-5'>
            <h1 className='text-3xl font-bold'>Sign In</h1>

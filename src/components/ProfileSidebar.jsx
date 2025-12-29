@@ -89,7 +89,7 @@
 
     return (
       <div> 
-          <nav className='w-96 h-[100vh] fixed top-0 left-0 bg-[#141e2f]'>
+          <nav className='w-full sm:w-96 h-full fixed top-0 left-0 bg-[#141e2f]'>
 
             <div className='flex items-center justify-between'>
               <ArrowLeft className='text-3xl text-white mt-5 mx-5 cursor-pointer'

@@ -14,6 +14,7 @@ const Home = () => {
   const [selectedFriends , setSelectedFriends] = useState(null);
   const [friendData , setFriendData] = useState([]);
   const [chatId , setChatId] = useState(null);
+  const [isMobileChatOpen , setIsMobileChatOpen] = useState(false);
  
 
   useEffect(()=>{
@@ -69,19 +70,30 @@ const Home = () => {
       
   }
 
+      const handleBack = () => {
+      setIsMobileChatOpen(false);
+      setSelectedFriends(null);
+      setChatId(null);
+    };
+
+
  
 
   return (
     <div className='h-screen flex'>
       <Sidebar setSelectedFriends = {setSelectedFriends}
       friendData = {friendData}  
-      setChatId = {setChatId}  
+      setChatId = {setChatId}
+      isMobileChatOpen = {isMobileChatOpen}
+      setIsMobileChatOpen = {setIsMobileChatOpen}  
       />
 
       <ChatWindow 
       selectedFriends = {selectedFriends}
       sendHandler = {sendHandler}
       chatId = {chatId}
+      isMobileChatOpen = {isMobileChatOpen}
+      onBack = {handleBack}
       />
     </div>
   )

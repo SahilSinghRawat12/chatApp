@@ -4,7 +4,7 @@ import profilePic from "../../assets/profilePic.jpg"
 import ClearDropDown from './ClearDropDown'
 
 
-const ChatHeader = ({selectedFriends , onClearChat}) => {
+const ChatHeader = ({selectedFriends , onClearChat , isMobileChatOpen , onBack}) => {
   
   const dropdownRef = useRef(null);
   const fullName = `${selectedFriends.firstname} ${selectedFriends.lastname}`
@@ -34,6 +34,17 @@ const ChatHeader = ({selectedFriends , onClearChat}) => {
 
   return (
     <div className='  flex items-center justify-between h-[70px] px-4 py-5 bg-white border-b border-gray-200'>
+            
+            {isMobileChatOpen && (
+            <div className="sm:hidden px-4 py-2">
+               <button
+                  onClick={onBack}
+                  className="text-blue-500 font-semibold"
+               >
+                  ← Back
+               </button>
+            </div>
+            )}
 
         {/* left part */}
          <div className='flex items-center gap-3'>

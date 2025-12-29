@@ -8,11 +8,11 @@ import FriendList from './sidebarComponents/FriendList'
  
  
 
-const Sidebar = ({setSelectedFriends , friendData , setChatId}) => {
+const Sidebar = ({setSelectedFriends , friendData , setChatId , isMobileChatOpen , setIsMobileChatOpen}) => {
 
     const [dropdown , setDropDown] = useState(false);
     const dropdownRef = useRef(null);
-
+    
      //what user types stores in this
   const [searchText , setSearchText] = useState("");
  
@@ -50,7 +50,8 @@ const Sidebar = ({setSelectedFriends , friendData , setChatId}) => {
 
   return (
     <div> 
-        <nav className='w-96 h-screen fixed top-0 left-0 bg-[#141e2f] flex flex-col'>
+        <nav className={`w-full sm:w-80 md:w-96  h-full fixed top-0 left-0 bg-[#141e2f] flex flex-col
+         ${isMobileChatOpen ? "hidden sm:block" : "sm:block"}`}>
 
               <div className='flex justify-between items-center my-5 mx-5'>
                    <div className='flex items-center gap-x-3 select-none'>
@@ -86,6 +87,8 @@ const Sidebar = ({setSelectedFriends , friendData , setChatId}) => {
                   setSelectedFriends = {setSelectedFriends}
                   friendData = {visibleFriends}
                   setChatId = {setChatId}
+                  setIsMobileChatOpen = {setIsMobileChatOpen}
+                  
                  />
                
         </nav>
