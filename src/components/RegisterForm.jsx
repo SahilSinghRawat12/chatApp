@@ -69,7 +69,7 @@
                    firstname : formData.firstname,
                    lastname : formData.lastname,
                    email : formData.email,
-                   profilePic : "/defaultAvatar.png",
+                   profilePic : "./defaultAvatar.png",
                    createdAt : new Date(),
                    online : true,
                    status : "Hey there I am using chat app",
