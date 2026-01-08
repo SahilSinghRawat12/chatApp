@@ -48,7 +48,7 @@ const ChatHeader = ({selectedFriends , onClearChat , isMobileChatOpen , onBack})
 
         {/* left part */}
          <div className='flex items-center gap-3'>
-              <img src={selectedFriends.profilePic}
+              <img src={selectedFriends?.profilePic || "./defaultAvatar.png"}
                 className='w-10 h-10 rounded-full object-cover cursor-pointer'
               />
 

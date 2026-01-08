@@ -51,7 +51,7 @@ const FreindItem = ({friend , setSelectedFriends , setChatId , setIsMobileChatOp
     <div className='flex gap-x-5 items-center  my-2 mx-3 rounded-md  hover:bg-gray-900  px-4 py-4 '
      onClick={friendListClickHandler} >
         <div>
-            <img src={friend.profilePic} alt=""
+            <img src={friend?.profilePic || "./defaultAvatar.png"} alt=""
             className='w-10 h-10 rounded-full'
              />
         </div>  

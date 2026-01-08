@@ -103,7 +103,7 @@
                      image 
                      ? ( <img  src={URL.createObjectURL(image)} alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> ) 
                      
-                     : (<img  src="/defaultAvatar.png" alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> )
+                     : (<img  src={userData?.profilePic || "./defaultAvatar.png"} alt="profile" className='w-32 h-32 rounded-full cursor-pointer' onClick={imageClickHandler}/> )
                  }
 
                   <input type='file' className='hidden' ref={inputRef} onChange={imageChangeHandler}/>
