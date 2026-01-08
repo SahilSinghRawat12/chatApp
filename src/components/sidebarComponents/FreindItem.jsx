@@ -41,7 +41,7 @@ const FreindItem = ({friend , setSelectedFriends , setChatId , setIsMobileChatOp
     }
     
 
-    setChatId(singularChatId);
+    setChatId(singularChatId); 
     
   }
 
